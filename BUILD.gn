@@ -58,6 +58,7 @@ static_library("gtest") {
   sources -= [ "googletest/src/gtest-all.cc" ]
   public_configs = [ ":gtest_config" ]
   configs += [ ":gtest_private_config" ]
+  configs -= [ "//build/config:no_rtti" ]
 
   if (is_fuchsia) {
     if (using_fuchsia_sdk) {
