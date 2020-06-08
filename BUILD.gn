@@ -2,9 +2,10 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-if (is_fuchsia) {
-  import("//build/fuchsia/sdk.gni")
-}
+# NEBULA: using old build system.
+#if (is_fuchsia) {
+#  import("//build/fuchsia/sdk.gni")
+#}
 
 config("gtest_private_config") {
   visibility = [ ":*" ]
@@ -64,17 +65,18 @@ static_library("gtest") {
   configs -= [ "//build/config:no_rtti" ]
 
   if (is_fuchsia) {
-    if (using_fuchsia_sdk) {
-      deps = [
-        "$fuchsia_sdk_root/pkg:fdio",
-        "$fuchsia_sdk_root/pkg:zx",
-      ]
-    } else {
+# NEBULA: using old build system.
+#    if (using_fuchsia_sdk) {
+#      deps = [
+#        "$fuchsia_sdk_root/pkg:fdio",
+#        "$fuchsia_sdk_root/pkg:zx",
+#      ]
+#    } else {
       deps = [
         "//zircon/public/lib/fdio",
         "//zircon/public/lib/zx",
       ]
-    }
+#    }
   }
 }
 
