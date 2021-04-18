@@ -177,3 +177,13 @@ cc_test(
     srcs = ["googletest/samples/sample10_unittest.cc"],
     deps = [":gtest"],
 )
+
+filegroup(
+    name = "ROOT",
+    srcs = glob(["BUILD.bazel"]),
+)
+
+filegroup(
+    name = "headers",
+    srcs = glob(["googletest/include/gtest/**"]),
+)
