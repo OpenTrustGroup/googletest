@@ -597,8 +597,10 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
      GTEST_OS_AIX || GTEST_OS_HPUX || GTEST_OS_OPENBSD || GTEST_OS_QNX || \
      GTEST_OS_FREEBSD || GTEST_OS_NETBSD || GTEST_OS_FUCHSIA ||           \
      GTEST_OS_DRAGONFLY || GTEST_OS_GNU_KFREEBSD || GTEST_OS_HAIKU)
-// NEBULA : Functions about death test doesnot exist.
-//# define GTEST_HAS_DEATH_TEST 1
+#ifndef __Fuchsia__
+// Nebula: disabled for fuchsia due to missing fdio headers and syscalls.
+# define GTEST_HAS_DEATH_TEST 1
+#endif /* __Fuchsia__ */
 #endif
 
 // Determines whether to support type-driven tests.
